@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f5f7">
+    <meta name="description" content="Six polished mini games built with HTML, CSS and JavaScript. Play for free, no downloads.">
+    <title>Little Arcade — Your six-game mini arcade</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <header class="site-header">
+            <a href="#home" class="wordmark" aria-label="Little Arcade, home">
+                <span class="brand-icon" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+                <span>little arcade<span class="brand-period">.</span></span>
+            </a>
+            <div class="header-actions">
+                <span class="header-caption">Built with HTML, CSS &amp; JavaScript</span>
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.7 13.1A8.5 8.5 0 0 1 10.9 3.3 8.5 8.5 0 1 0 20.7 13.1Z"/></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+                    <span id="theme-label">Dark mode</span>
+                </button>
+            </div>
+        </header>
+
+        <section id="home" class="hero" aria-labelledby="hero-heading">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> YOUR EVERYDAY MINI ARCADE</p>
+                <h1 id="hero-heading">A little time to play.</h1>
+                <p>Six games, one clean space. Choose your favorite and take a break.</p>
+            </div>
+            <div class="hero-meta" aria-label="Six games, playable offline">
+                <div><strong>06</strong><span>MINI GAMES</span></div>
+                <span class="hero-meta-separator" aria-hidden="true"></span>
+                <div><strong>∞</strong><span>REPLAYS</span></div>
+            </div>
+        </section>
+
+        <div class="workspace">
+            <nav class="game-navigation" aria-label="Game selection">
+                <div class="navigation-top"><span class="section-kicker">THE COLLECTION</span><span class="navigation-count">01 — 06</span></div>
+                <p class="mobile-nav-hint">CHOOSE A GAME <span aria-hidden="true">→</span></p>
+                <div class="navigation-list">
+                    <button class="game-nav-item is-active" type="button" data-game="ttt" aria-pressed="true"><span class="nav-number">01</span><span class="nav-label"><strong>Tic-Tac-Toe</strong><small>Two player classic</small></span><span class="nav-chevron" aria-hidden="true">›</span></button>
+                    <button class="game-nav-item" type="button" data-game="rps" aria-pressed="false"><span class="nav-number">02</span><span class="nav-label"><strong>Rock Paper Scissors</strong><small>Beat the computer</small></span><span class="nav-chevron" aria-hidden="true">›</span></button>
+                    <button class="game-nav-item" type="button" data-game="guess" aria-pressed="false"><span class="nav-number">03</span><span class="nav-label"><strong>Number Guess</strong><small>Find the secret</small></span><span class="nav-chevron" aria-hidden="true">›</span></button>
+                    <button class="game-nav-item" type="button" data-game="memory" aria-pressed="false"><span class="nav-number">04</span><span class="nav-label"><strong>Memory Match</strong><small>Find all six pairs</small></span><span class="nav-chevron" aria-hidden="true">›</span></button>
+                    <button class="game-nav-item" type="button" data-game="reaction" aria-pressed="false"><span class="nav-number">05</span><span class="nav-label"><strong>Reaction Test</strong><small>How fast are you?</small></span><span class="nav-chevron" aria-hidden="true">›</span></button>
+                    <button class="game-nav-item" type="button" data-game="math" aria-pressed="false"><span class="nav-number">06</span><span class="nav-label"><strong>Quick Math</strong><small>Ten short questions</small></span><span class="nav-chevron" aria-hidden="true">›</span></button>
+                </div>
+                <div class="navigation-foot"><span class="online-dot" aria-hidden="true"></span> All games work offline</div>
+            </nav>
+
+            <main class="game-card" id="games">
+                <div class="game-card-header">
+                    <div><p class="section-kicker" id="game-category">01 / THE CLASSICS</p><h2 id="game-heading" tabindex="-1">Tic-Tac-Toe</h2></div>
+                    <button id="restart-button" class="restart-button" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+                        <span>Restart</span>
+                    </button>
+                </div>
+
+                <div class="game-card-body">
+                    <div class="game-stage">
+                        <section id="ttt" class="game-view" aria-labelledby="game-heading">
+                            <p class="game-description">The familiar three-in-a-row challenge. Player X goes first.</p>
+                            <div class="board-wrap">
+                                <div id="ttt-board" class="ttt-board" aria-label="Tic-Tac-Toe game board">
+                                    <button class="ttt-cell" type="button" aria-label="Row 1, column 1"></button>
+                                    <button class="ttt-cell" type="button" aria-label="Row 1, column 2"></button>
+                                    <button class="ttt-cell" type="button" aria-label="Row 1, column 3"></button>
+                                    <button class="ttt-cell" type="button" aria-label="Row 2, column 1"></button>
+                                    <button class="ttt-cell" type="button" aria-label="Row 2, column 2"></button>
+                                    <button class="ttt-cell" type="button" aria-label="Row 2, column 3"></button>
+                                    <button class="ttt-cell" type="button" aria-label="Row 3, column 1"></button>
+                                    <button class="ttt-cell" type="button" aria-label="Row 3, column 2"></button>
+                                    <button class="ttt-cell" type="button" aria-label="Row 3, column 3"></button>
+                                </div>
+                                <p id="ttt-status" class="feedback-pill" role="status" aria-live="polite">Player X's turn</p>
+                            </div>
+                        </section>
+
+                        <section id="rps" class="game-view" hidden aria-labelledby="game-heading">
+                            <p class="game-description">Make your move and see what the computer picks.</p>
+                            <div class="rps-wrap">
+                                <p class="mini-label">CHOOSE YOUR MOVE</p>
+                                <div class="rps-choices">
+                                    <button type="button" class="rps-choice" data-move="Rock"><span class="rps-glyph" aria-hidden="true">R</span><strong>Rock</strong><small>01</small></button>
+                                    <button type="button" class="rps-choice" data-move="Paper"><span class="rps-glyph" aria-hidden="true">P</span><strong>Paper</strong><small>02</small></button>
+                                    <button type="button" class="rps-choice" data-move="Scissors"><span class="rps-glyph" aria-hidden="true">S</span><strong>Scissors</strong><small>03</small></button>
+                                </div>
+                                <p id="rps-status" class="feedback-pill" role="status" aria-live="polite">Choose a move to begin</p>
+                                <p id="rps-detail" class="supporting-text">Your result will appear here.</p>
+                                <div class="rps-scores" aria-label="Rock Paper Scissors scores">
+                                    <div><span>YOU</span><strong id="rps-you">0</strong></div>
+                                    <div><span>COMPUTER</span><strong id="rps-computer">0</strong></div>
+                                    <div><span>DRAWS</span><strong id="rps-draws">0</strong></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="guess" class="game-view" hidden aria-labelledby="game-heading">
+                            <p class="game-description">I'm thinking of a whole number between 1 and 100.</p>
+                            <div class="centered-game">
+                                <div class="large-mark">?</div>
+                                <form id="guess-form" class="compact-form" novalidate>
+                                    <label for="guess-input" class="mini-label">YOUR GUESS</label>
+                                    <div class="form-row"><input id="guess-input" name="guess" type="text" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="1 – 100" required><button class="primary-button" id="guess-submit" type="submit">Guess</button></div>
+                                </form>
+                                <p id="guess-status" class="feedback-pill" role="status" aria-live="polite">Take your first guess</p>
+                                <p class="supporting-text">Attempts <strong id="guess-attempts">0</strong></p>
+                            </div>
+                        </section>
+
+                        <section id="memory" class="game-view" hidden aria-labelledby="game-heading">
+                            <p class="game-description">Turn over two cards at a time. Find the six matching pairs.</p>
+                            <div class="memory-wrap">
+                                <div class="memory-meta"><span>MATCHED <strong id="memory-pairs">0 / 6</strong></span><span>MOVES <strong id="memory-moves">0</strong></span></div>
+                                <div id="memory-grid" class="memory-grid" aria-label="Memory matching game"></div>
+                                <p id="memory-status" class="feedback-pill" role="status" aria-live="polite">Choose two cards</p>
+                            </div>
+                        </section>
+
+                        <section id="reaction" class="game-view" hidden aria-labelledby="game-heading">
+                            <p class="game-description">Wait until the area turns green, then tap it as quickly as you can.</p>
+                            <div class="reaction-wrap">
+                                <button id="reaction-pad" type="button" class="reaction-pad" data-state="idle"><span class="reaction-symbol" aria-hidden="true">↗</span><strong id="reaction-pad-heading">Ready when you are.</strong><small id="reaction-pad-caption">Click here to start</small></button>
+                                <p id="reaction-status" class="feedback-pill" role="status" aria-live="polite">Your reaction time will appear here</p>
+                                <p class="supporting-text">Session best: <strong id="reaction-best">—</strong></p>
+                            </div>
+                        </section>
+
+                        <section id="math" class="game-view" hidden aria-labelledby="game-heading">
+                            <p class="game-description">Ten quick problems. Addition, subtraction and multiplication.</p>
+                            <div class="centered-game math-center">
+                                <div class="math-progress"><span>QUESTION <strong id="math-progress">1 / 10</strong></span><span>SCORE <strong id="math-score">0</strong></span></div>
+                                <progress id="math-meter" class="math-meter" max="10" value="0" aria-label="Questions completed"></progress>
+                                <div class="math-equation" id="math-equation" aria-live="polite">8 + 6 = ?</div>
+                                <form id="math-form" class="compact-form" novalidate><label for="math-input" class="mini-label">YOUR ANSWER</label><div class="form-row"><input id="math-input" type="text" inputmode="numeric" autocomplete="off" maxlength="6" placeholder="Answer" required><button id="math-submit" type="submit" class="primary-button">Check</button></div></form>
+                                <p id="math-status" class="feedback-pill" role="status" aria-live="polite">Ready to solve?</p>
+                            </div>
+                        </section>
+                    </div>
+
+                    <aside class="game-info" aria-label="Game details">
+                        <div class="info-section"><p class="section-kicker">HOW TO PLAY</p><p id="game-instructions">Take turns selecting a square. Line up three of your marks horizontally, vertically, or diagonally to win.</p></div>
+                        <div class="info-section"><p class="section-kicker">GOOD TO KNOW</p><p id="game-tip">Two players can play together on the same screen. No account needed.</p></div>
+                        <div class="info-bottom"><div class="info-indicator" aria-hidden="true"><span></span><span></span><span></span></div><span>No sign-up. Just play.</span></div>
+                    </aside>
+                </div>
+            </main>
+        </div>
+
+        <footer class="site-footer"><span>Little Arcade · A web development project</span><span>Made for the joy of playing.</span></footer>
+    </div>
+</body>
+</html>
